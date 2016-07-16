@@ -1,5 +1,6 @@
 imports:
     - { resource: parameters.yml }
+    - { resource: security.yml }
 
 parameters:
     locale: en
@@ -50,3 +51,17 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+# Sonata Block Configuration
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+
+# Sonata Admin Configuration
+sonata_admin:
+    show_mosaic_button: false
+    templates:
+        layout: TopoAdminBundle::layout.html.twig
+        user_block: TopoAdminBundle:Core:user_block.html.twig
