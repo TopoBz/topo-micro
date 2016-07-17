@@ -30,7 +30,8 @@
         "sensio/generator-bundle": "^3.0",
         "incenteev/composer-parameter-handler": "^2.1",
 
-        "topobz/topo-admin-bundle": "dev-master"
+        "topobz/topo-admin-bundle": "dev-master",
+        "vlucas/phpdotenv": "^2.3"
     },
     "scripts": {
         "post-install-cmd": [

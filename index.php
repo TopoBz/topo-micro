@@ -10,9 +10,15 @@ umask(0000);
  */
 $loader = require __DIR__.'/app/autoload.php';
 
+$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv->load();
+
+$env = $_SERVER['SYMFONY_ENV'];
+$debug = $_SERVER['SYMFONY_DEBUG'];
+
 Debug::enable();
 
-$kernel = new AppKernel('dev', true);
+$kernel = new AppKernel($env, $debug);
 $kernel->loadClassCache();
 
 $request = Request::createFromGlobals();
