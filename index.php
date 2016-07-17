@@ -18,8 +18,8 @@ if(file_exists('.env')){
 	$dotenv = new Dotenv\Dotenv(__DIR__);
 	$dotenv->load();
 
-	$env = $_SERVER['SYMFONY_ENV'] | 'prod';
-	$debug = $_SERVER['SYMFONY_DEBUG'] | 0;
+	$env = $_SERVER['SYMFONY_ENV'];
+	$debug = $_SERVER['SYMFONY_DEBUG'];
 }
 
 Debug::enable();
