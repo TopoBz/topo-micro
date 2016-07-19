@@ -4,11 +4,6 @@ imports:
 parameters:
     locale: en
 
-# Web Profile Configuration
-web_profiler:
-    toolbar: true
-    intercept_redirects: false
-
 # Symfony Framework Configuration
 framework:
     secret: "%secret%"
@@ -47,6 +42,20 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+
+# Monolog Configuration
+monolog:
+    handlers:
+        main:
+            type:         fingers_crossed
+            action_level: %log_action_level%
+            handler:      nested
+        nested:
+            type:  stream
+            path:  "%kernel.logs_dir%/%kernel.environment%.log"
+            level: debug
+        console:
+            type: console
 
 # Swiftmailer Configuration
 swiftmailer:
