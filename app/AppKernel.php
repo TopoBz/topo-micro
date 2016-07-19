@@ -71,7 +71,7 @@ class AppKernel extends Kernel
     {
         $loader->load(sprintf('%s/config/config.yml', $this->getRootDir()));
 
-        // loads the config file if exists
+        // loads the local config file if exists
         if (is_file($file = sprintf(sprintf('%s/config/config.local.yml', $this->getRootDir())))) {
             $loader->load($file);
         }
@@ -79,7 +79,7 @@ class AppKernel extends Kernel
         $environment = $this->getEnvironment();
 
         $loader->load(function (ContainerBuilder $container) use ($environment) {
-            // calls the configuration container method depending on the current environment
+            // calls the configuration container method, if exists, depending on the current environment
             // for example in dev environment: configureDevContainer
             $method = sprintf('configure%sContainer', ucfirst(strtolower($environment)));
             if (method_exists($this, $method)) {
