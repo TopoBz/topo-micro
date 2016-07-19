@@ -1,9 +1,13 @@
 imports:
-    - { resource: parameters.yml }
     - { resource: security.yml }
 
 parameters:
     locale: en
+
+# Web Profile Configuration
+web_profiler:
+    toolbar: true
+    intercept_redirects: false
 
 # Symfony Framework Configuration
 framework:

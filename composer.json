@@ -28,14 +28,12 @@
         "sensio/framework-extra-bundle": "^3.0",
         "sensio/distribution-bundle": "^5.0",
         "sensio/generator-bundle": "^3.0",
-        "incenteev/composer-parameter-handler": "^2.1",
+        "vlucas/phpdotenv": "^2.3",
 
-        "topobz/topo-admin-bundle": "dev-master",
-        "vlucas/phpdotenv": "^2.3"
+        "topobz/topo-admin-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
@@ -43,7 +41,6 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ],
         "post-update-cmd": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
@@ -58,9 +55,6 @@
         "symfony-web-dir": "web",
         "symfony-tests-dir": "tests",
         "symfony-assets-install": "relative",
-        "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
-        },
         "branch-alias": {
             "dev-master": "0.1-dev"
         }

@@ -1,5 +1,6 @@
 <?php
 
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
 
@@ -29,7 +30,7 @@ class AppKernel extends Kernel
             new Topo\AdminBundle\TopoAdminBundle(),
         ];
 
-        if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
+        if ('dev' === $this->getEnvironment()) {
             $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
@@ -68,6 +69,57 @@ class AppKernel extends Kernel
      */
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
-        $loader->load(sprintf('%s/config/config_%s.yml', $this->getRootDir(), $this->getEnvironment()));
+        $loader->load(sprintf('%s/config/config.yml', $this->getRootDir()));
+
+        // loads the config file if exists
+        if (is_file($file = sprintf(sprintf('%s/config/config.local.yml', $this->getRootDir())))) {
+            $loader->load($file);
+        }
+
+        $environment = $this->getEnvironment();
+
+        $loader->load(function (ContainerBuilder $container) use ($environment) {
+            // calls the configuration container method depending on the current environment
+            // for example in dev environment: configureDevContainer
+            $method = sprintf('configure%sContainer', ucfirst(strtolower($environment)));
+            if (method_exists($this, $method)) {
+                call_user_func([$this, $method], $container);
+            }
+        });
+    }
+
+    /**
+     * Configures the dev environment container.
+     *
+     * @param ContainerBuilder $container
+     */
+    private function configureDevContainer(ContainerBuilder $container)
+    {
+        // framework configuration
+        $container->loadFromExtension('framework', [
+            'router' => [
+                'resource' => '%kernel.root_dir%/config/routing_dev.yml',
+                'strict_requirements' => true,
+            ],
+            'profiler' => [
+                'only_exceptions' => false,
+            ],
+        ]);
+
+        // web profile configuration
+        $container->loadFromExtension('web_profiler', [
+            'toolbar' => true,
+            'intercept_redirects' => false,
+        ]);
+
+        // check if there is a default delivery address
+        if ($container->hasParameter('mailer_delivery_address')) {
+            $mailerDeliveryAddress = $container->getParameter('mailer_delivery_address');
+            if (filter_var($mailerDeliveryAddress, FILTER_VALIDATE_EMAIL)) {
+                $container->loadFromExtension('swiftmailer', [
+                    'delivery_address' => $mailerDeliveryAddress,
+                ]);
+            }
+        }
     }
 }

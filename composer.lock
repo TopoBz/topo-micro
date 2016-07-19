@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e3e742a41c9183bec4a5821b4d6cef5c",
-    "content-hash": "5c45186c24623e1e94458dc7dd2078c2",
+    "hash": "bc177a397cbaabd5ed496658cbc600d3",
+    "content-hash": "bca294be6f998be72a6413dbf6889b13",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -837,57 +837,6 @@
                 "orm"
             ],
             "time": "2016-01-05 21:34:58"
-        },
-        {
-            "name": "incenteev/composer-parameter-handler",
-            "version": "v2.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Incenteev/ParameterHandler.git",
-                "reference": "d7ce7f06136109e81d1cb9d57066c4d4a99cf1cc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Incenteev/ParameterHandler/zipball/d7ce7f06136109e81d1cb9d57066c4d4a99cf1cc",
-                "reference": "d7ce7f06136109e81d1cb9d57066c4d4a99cf1cc",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "symfony/yaml": "~2.3|~3.0"
-            },
-            "require-dev": {
-                "composer/composer": "1.0.*@dev",
-                "phpspec/prophecy-phpunit": "~1.0",
-                "symfony/filesystem": "~2.2"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Incenteev\\ParameterHandler\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christophe Coevoet",
-                    "email": "stof@notk.org"
-                }
-            ],
-            "description": "Composer script handling your ignored parameter file",
-            "homepage": "https://github.com/Incenteev/ParameterHandler",
-            "keywords": [
-                "parameters management"
-            ],
-            "time": "2015-11-10 17:04:01"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -2503,12 +2452,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/TopoBz/TopoAdminBundle.git",
-                "reference": "b24a08e927ad073b01a3b394f1d095955142d419"
+                "reference": "a196bb200ce6183285666063fd6c224c7b618072"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TopoBz/TopoAdminBundle/zipball/b24a08e927ad073b01a3b394f1d095955142d419",
-                "reference": "b24a08e927ad073b01a3b394f1d095955142d419",
+                "url": "https://api.github.com/repos/TopoBz/TopoAdminBundle/zipball/a196bb200ce6183285666063fd6c224c7b618072",
+                "reference": "a196bb200ce6183285666063fd6c224c7b618072",
                 "shasum": ""
             },
             "require": {
@@ -2539,7 +2488,7 @@
                     "email": "maztch@gmail.com"
                 }
             ],
-            "time": "2016-07-16 11:55:31"
+            "time": "2016-07-16 12:45:21"
         },
         {
             "name": "twig/extensions",
@@ -2653,6 +2602,56 @@
                 "templating"
             ],
             "time": "2016-05-30 09:11:59"
+        },
+        {
+            "name": "vlucas/phpdotenv",
+            "version": "v2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vlucas/phpdotenv.git",
+                "reference": "9ca5644c536654e9509b9d257f53c58630eb2a6a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/9ca5644c536654e9509b9d257f53c58630eb2a6a",
+                "reference": "9ca5644c536654e9509b9d257f53c58630eb2a6a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8 || ^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dotenv\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause-Attribution"
+            ],
+            "authors": [
+                {
+                    "name": "Vance Lucas",
+                    "email": "vance@vancelucas.com",
+                    "homepage": "http://www.vancelucas.com"
+                }
+            ],
+            "description": "Loads environment variables from `.env` to `getenv()`, `$_ENV` and `$_SERVER` automagically.",
+            "keywords": [
+                "dotenv",
+                "env",
+                "environment"
+            ],
+            "time": "2016-06-14 14:14:52"
         }
     ],
     "packages-dev": [],
