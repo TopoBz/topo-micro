@@ -1,5 +1,6 @@
 imports:
     - { resource: security.yml }
+    - { resource: "@TopoSettingBundle/Resources/config/services.xml" }
 
 parameters:
     locale: en
@@ -48,7 +49,7 @@ monolog:
     handlers:
         main:
             type:         fingers_crossed
-            action_level: %log_action_level%
+            action_level: "%log_action_level%"
             handler:      nested
         nested:
             type:  stream

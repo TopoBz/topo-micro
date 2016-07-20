@@ -24,10 +24,14 @@ class AppKernel extends Kernel
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
 
             // Topo bundles
             new Topo\AdminBundle\TopoAdminBundle(),
+
+            // App bundles
+            new AppBundle\AppBundle(),
         ];
 
         if ('dev' === $this->getEnvironment()) {
