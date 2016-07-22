@@ -1,6 +1,6 @@
 imports:
     - { resource: security.yml }
-    - { resource: "@TopoSettingBundle/Resources/config/services.xml" }
+    - { resource: services.yml }
 
 parameters:
     locale: en
@@ -73,9 +73,16 @@ sonata_block:
         sonata.admin.block.admin_list:
             contexts: [admin]
 
+
 # Sonata Admin Configuration
 sonata_admin:
     show_mosaic_button: false
     templates:
         layout: TopoAdminBundle::layout.html.twig
         user_block: TopoAdminBundle:Core:user_block.html.twig
+
+# Topo Admin Configuration
+topo_admin:
+    db_driver: orm
+    admin_user_class: "AppBundle\\Entity\\AdminUser"
+
